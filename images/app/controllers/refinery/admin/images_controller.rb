@@ -43,6 +43,8 @@ module Refinery
         begin
           if params[:image].present? && params[:image][:image].is_a?(Array)
             params[:image][:image].each do |image|
+              next if image.blank?
+
               image_title = params[:image][:image_title].presence || auto_title(image.original_filename)
               @images << @image = ::Refinery::Image.create(
                 image_params.merge(image_title: image_title, image: image)
@@ -163,8 +165,8 @@ module Refinery
         return unless params[:view].present?
 
         view = params[:view].to_sym
-        if action_name == 'index' && view && Refinery::Images.index_views.include?(view)
-           Refinery::Images.preferred_index_view = view
+        if action_name == 'index' && view && Refinery::Images.image_views.include?(view)
+           Refinery::Images.preferred_image_view = view
         end
       end
 

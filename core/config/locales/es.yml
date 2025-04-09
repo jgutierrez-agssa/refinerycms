@@ -43,6 +43,8 @@ es:
         show: Mostrar
       locale_picker:
         language: Lenguaje
+        edit_in_locale: Edit in %{locale}
+        edit_in_language: Edit in %{language}
       resource_picker:
         download_current: Descargar archivo actual
         opens_in_new_window: Abre en una nueva ventana

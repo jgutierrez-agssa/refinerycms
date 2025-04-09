@@ -1,6 +1,6 @@
 <%= will_paginate @images if Refinery::Admin::ImagesController.pageable? %>
 <%
-  view = Refinery::Images.preferred_index_view || 'list'
+  view = Refinery::Images.preferred_image_view || 'list'
   presenter = Refinery::Admin.const_get("#{view}_presenter".camelize).new(self)
   images = @images.map { |image| Refinery::Admin::ImagePresenter.new(image, self) }
 %>

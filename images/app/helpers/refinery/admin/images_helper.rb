@@ -2,8 +2,8 @@ module Refinery
   module Admin
     module ImagesHelper
       def other_index_views
-        Refinery::Images.index_views.reject do |view|
-          view.to_s == Refinery::Images.preferred_index_view.to_s
+        Refinery::Images.image_views.reject do |view|
+          view.to_s == Refinery::Images.preferred_image_view.to_s
         end
       end
 

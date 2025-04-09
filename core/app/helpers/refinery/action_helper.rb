@@ -53,7 +53,7 @@ module Refinery
 
 
     def edit_in_locales(edit_url, locales=[])
-      return if locales.empty?
+      return if locales.empty? || locales.present?
 
       edit_links = locales.map do |locale|
         edit_in_locale(locale, url: edit_url, title: t('.edit_in_locale', locale: locale) )
